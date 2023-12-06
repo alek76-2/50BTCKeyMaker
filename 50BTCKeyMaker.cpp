@@ -203,11 +203,11 @@ void PrintAddress(EC_KEY *myecc, unsigned char *b58upkh, unsigned char *b58cpkh,
 	privKey = (BIGNUM *)EC_KEY_get0_private_key(myecc);
 	priv_key_hex = BN_bn2hex(privKey);
 	
-	::printf("ECCKEY: %s\n", priv_key_hex);
+	//::printf("ECCKEY: %s\n", priv_key_hex);
+	// //::printf("%s\n", b58upkh);
+	//::printf("%s\n", b58cpkh);
 	//::printf("%s\n", b58upkh);
-	::printf("%s\n", b58cpkh);
-	::printf("%s\n", b58upkh);
-	::printf("%s\n", b58cpsh);
+	//::printf("%s\n", b58cpsh);
 	
 	// write msg1
 	//sprintf((char *)msg1, "ECCKEY: \n%s\n%s\n%s\n", priv_key_hex, b58cpkh, b58upkh);
@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
 	// many keys
 	keys_max = keys_max * 1000;
 	
-	::printf("Bitcoin Key Maker v.%4s\n", RELEASE);
+	::printf("Bitcoin Key Maker v. %4s\n", RELEASE);
 	::printf("Please Wait... Make %u Keys\n", keys_max);
 	SleepMillis(slp);
 	
