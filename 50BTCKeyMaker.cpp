@@ -253,7 +253,7 @@ int main(int argc, char *argv[])
 	bool write_px = true;
 	float percprog = 0.00f;
 	
-	// many keys
+	// many keys - Multiplier 100
 	keys_max = keys_max * 100;
 	
 	::printf("Bitcoin Key Maker v. %4s\n", RELEASE);
