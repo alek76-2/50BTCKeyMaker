@@ -254,7 +254,7 @@ int main(int argc, char *argv[])
 	float percprog = 0.00f;
 	
 	// many keys
-	keys_max = keys_max * 1000;
+	keys_max = keys_max * 100;
 	
 	::printf("Bitcoin Key Maker v. %4s\n", RELEASE);
 	::printf("Please Wait... Make %u Keys\n", keys_max);
