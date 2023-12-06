@@ -250,9 +250,10 @@ int main(int argc, char *argv[])
 	unsigned long keys_max = 1000;
 	uint32_t slp = 2000;
 	bool write_px = true;
+	float percprog = 0.00f;
 	
 	// many keys
-	keys_max = keys_max * 10;
+	keys_max = keys_max * 1000;
 	
 	::printf("Bitcoin Key Maker v.%4s\n", RELEASE);
 	::printf("Please Wait... Make %u Keys\n", keys_max);
@@ -315,14 +316,14 @@ int main(int argc, char *argv[])
 		
 		keys_cnt++;
 		
-		// Pause 
-		//if (keys_cnt % 100 == 0) {
-		//	::printf("Keys nb: %lu \n", keys_cnt);
-		//	SleepMillis(1000);// 1 sec
-		//}		
+		// Progres 
+		if (keys_cnt % 10 == 0) {
+			percprog = (float)keys_cnt * 100 / keys_max;
+			::printf("Keys nb: %lu Progres: %0.1f%% \r", keys_cnt, percprog);
+		}
 	}
 	
-	::printf("Key generation completed \n");
+	::printf("Key generation completed %0.1f%% \r", percprog);
 	
 	SleepMillis(slp);
 	
