@@ -211,7 +211,8 @@ void PrintAddress(EC_KEY *myecc, unsigned char *b58upkh, unsigned char *b58cpkh,
 	
 	// write msg1
 	//sprintf((char *)msg1, "ECCKEY: \n%s\n%s\n%s\n", priv_key_hex, b58cpkh, b58upkh);
-	sprintf((char *)msg1, "%s\n%s\n%s\n", priv_key_hex, b58cpkh, b58upkh);
+	//sprintf((char *)msg1, "%s\n%s\n%s\n", priv_key_hex, b58cpkh, b58upkh);
+	sprintf((char *)msg1, "%s\n%s\n%s\n%s\n", priv_key_hex, b58cpkh, b58upkh, b58cpsh);
 	
 	// Point
 	BIGNUM *x = BN_new();
