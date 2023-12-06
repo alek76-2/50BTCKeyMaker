@@ -17,7 +17,7 @@ bool GetPrivKey(EC_KEY *pkey) {
 	}
 	// Get Priv Key
 	int nSize = i2d_ECPrivateKey(pkey, NULL);
-    //::printf("nSize: %d\n", nSize);// check size
+	//::printf("nSize: %d\n", nSize);// check return
 	if (!nSize) {
 		::printf("GetPrivKey() : i2d_ECPrivateKey failed \n");
 		return false;
