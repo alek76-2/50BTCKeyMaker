@@ -1,4 +1,4 @@
-﻿// 50BTCKeyMaker.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// 50BTCKeyMaker.cpp
 //
 
 #include "50BTCKeyMaker.h"
