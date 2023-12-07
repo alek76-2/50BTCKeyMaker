@@ -3,7 +3,7 @@
 
 #include "50BTCKeyMaker.h"
 
-#define RELEASE "0.01"
+#define RELEASE "0.02"
 
 using namespace std;
 
@@ -253,10 +253,23 @@ int main(int argc, char *argv[])
 	bool write_px = true;
 	float percprog = 0.00f;
 	
-	// many keys - Multiplier 100
-	keys_max = keys_max * 100;
+	int a = 1; // count args
+	int mult_n = 1;
+	while (a < argc) {
+		if (strcmp(argv[a], "-mult") == 0) {
+			a++;
+			mult_n = atoi(argv[a]);
+			a++;
+		}
+	}
+	if (mult_n < 1) mult_n = 1;
+	if (mult_n > 10000) mult_n = 10000;
 	
-	::printf("Bitcoin Key Maker v. %4s\n", RELEASE);
+	// many keys
+	keys_max = keys_max * (unsigned long)mult_n;
+	
+	::printf("Bitcoin Key Maker ver. %4s\n", RELEASE);
+	::printf("Use option: -mult 100 (max. 10000)\n");
 	::printf("Please Wait... Make %u Keys\n", keys_max);
 	SleepMillis(slp);
 	
@@ -318,13 +331,13 @@ int main(int argc, char *argv[])
 		keys_cnt++;
 		
 		// Progres 
-		if (keys_cnt % 10 == 0) {
+		if (keys_cnt % 100 == 0) {
 			percprog = (float)keys_cnt * 100 / keys_max;
-			::printf("Keys nb: %lu Progres: %0.1f%% \r", keys_cnt, percprog);
+			::printf("Keys nb: %lu Progres: %0.2f%% \r", keys_cnt, percprog);
 		}
 	}
 	
-	::printf("Key generation completed %0.1f%% \r", percprog);
+	::printf("Key generation completed %0.2f%% \r", percprog);
 	
 	SleepMillis(slp);
 	
