@@ -276,6 +276,10 @@ int main(int argc, char *argv[])
 	
 	OpenSSL_add_all_algorithms();
 	
+	// Seed random number generator with screen scrape and other hardware sources
+	RAND_screen();
+	printf("OpenSSL RAND_screen() OK\n");
+	
 	
 	EC_KEY *myecc = EC_KEY_new_by_curve_name(NID_secp256k1);
 	if (myecc == NULL)
